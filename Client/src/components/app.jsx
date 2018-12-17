@@ -40,17 +40,18 @@ class App extends React.Component {
                     p.push(data.data.posts[i])
                 }
             }
-            else {
+            else if (data.data !== undefined){
                 for (let i=0; i<data.data.length; i++){
                     p.push(data.data[i])
                 }
             }
+            console.log(p);
             this.setState({posts: p})
         })
         .then(() => {
             console.log('heres the data: ', this.state.posts);
         })
-        .catch(err => {console.error(err);})
+        .catch(err => {console.error(err); this.setState({posts: []}) })
     }
 
     handleChange(event) {

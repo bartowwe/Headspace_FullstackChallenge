@@ -9,7 +9,7 @@ const blogController = {
         if (req.query.blogname !== '')
         {
             client.blogPosts(`${req.query.blogname}.tumblr.com`, { tag: req.query.tag }, function (err, data) {
-                if (err){console.error(err)}
+                if (err){console.error(err); res.status(400).send({})}
                 else{res.status(200).send(data)}
             });
         }
