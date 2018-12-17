@@ -39,6 +39,7 @@ class Post extends React.Component {
         )
     }
 
+    //handles all known post types. Text-type is handled by default, so is not listed here.
     filterPostType() {
         if (this.state.post.type === "photo"){
             return(
@@ -110,7 +111,7 @@ class Post extends React.Component {
         }
     }
 
-
+    //checks to see if the post has reblog data, and adds it to the post if so
     reblogable() {
         if (this.state.post.reblog){
             return(

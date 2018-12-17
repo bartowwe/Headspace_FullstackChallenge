@@ -24,8 +24,11 @@ class App extends React.Component {
     componentDidMount() {
     }  
       
-    //gets top 25 reddit nosleep story of the day
+    //sends a request to the local server for blog/tag
+    //if a bad request is send the 
     fetchTumblrs() {
+        //preEmpties the posts, reseting the scroll bar
+        this.setState({posts: []});
         axios
         .get('api/blog', {
             params: {
@@ -54,6 +57,7 @@ class App extends React.Component {
         .catch(err => {console.error(err); this.setState({posts: []}) })
     }
 
+    //handling search bar typing
     handleChange(event) {
         let stateObject = function() {
             let returnObj = {};
@@ -63,42 +67,44 @@ class App extends React.Component {
         this.setState( stateObject ); 
     }
 
+    //handling submit button
     handleSubmit(event) {
         console.log(this.state);
         this.fetchTumblrs();
         event.preventDefault();
     }
 
-  handleFavorite(post){
-    let tempFavs = this.state.favorites;
-    for(let i = 0; i < this.state.favorites.length; i++)
-    {
-      if (this.state.favorites[i].id === post.id)
+    //handles the favoriting process, which is passed down to the post component
+    handleFavorite(post){
+        let tempFavs = this.state.favorites;
+        for(let i = 0; i < this.state.favorites.length; i++)
         {
-          tempFavs.splice(i,1);
-          this.setState({favorites: tempFavs});
-          console.log('favs are: ', this.state.favorites);
-          return;
+        if (this.state.favorites[i].id === post.id)
+            {
+            tempFavs.splice(i,1);
+            this.setState({favorites: tempFavs});
+            console.log('favs are: ', this.state.favorites);
+            return;
+            }
         }
+        tempFavs.push(post);
+        this.setState({favorites: tempFavs});
+        console.log('favs are: ', this.state.favorites);
     }
-    tempFavs.push(post);
-    this.setState({favorites: tempFavs});
-    console.log('favs are: ', this.state.favorites);
-  }
 
-  checkFavorited(post) {
-    for(let i = 0; i < this.state.favorites.length; i++)
-    {
-      if (this.state.favorites[i].id === post)
+    //checks to see if the post in question is favorited so it knows which button to render
+    checkFavorited(post) {
+        for(let i = 0; i < this.state.favorites.length; i++)
         {
-          return true
+        if (this.state.favorites[i].id === post)
+            {
+            return true
+            }
         }
+        return false
     }
-    return false
-  }
       
     
-
     render () {
         return (
             <div>
