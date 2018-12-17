@@ -116,11 +116,11 @@ class App extends React.Component {
                                 <ul style={{marginLeft:'none'}}>
                                     <li id="form">
                                         Blog Name: <br/>
-                                        <input type="text" className="searchbox" name="blogname" value={this.state.value} onChange={this.handleChange}/>
+                                        <input type="text" className="searchbox" name="blogname" autoComplete="off" value={this.state.value} onChange={this.handleChange}/>
                                     </li>
                                     <li id="form">
                                         Tag: <br/>
-                                        <input type="text" className="searchbox" name="tag" value={this.state.value} onChange={this.handleChange}/>
+                                        <input type="text" className="searchbox" name="tag" autoComplete="off" value={this.state.value} onChange={this.handleChange}/>
                                     </li>
                                     <input type="submit" value="Search"/>
                                 </ul>
