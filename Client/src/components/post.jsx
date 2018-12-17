@@ -113,13 +113,25 @@ class Post extends React.Component {
 
     //checks to see if the post has reblog data, and adds it to the post if so
     reblogable() {
-        if (this.state.post.reblog){
+        if (this.state.post.reblog && (this.state.post.reblog.comment !=='' || this.state.post.reblog.tree_html !=='' )){
             return(
                 <div>
                    <div style={{fontWeight:'normal', padding:'10px'}} dangerouslySetInnerHTML={{__html: this.state.post.reblog.comment}}/>
                     <div style={{fontWeight:'normal', padding:'10px'}} dangerouslySetInnerHTML={{__html: this.state.post.reblog.tree_html}}/>
                 </div>
             )
+        }
+        else if (this.state.post.type === 'text'){
+            if (this.state.post.body !== ''){
+                return(
+                    <div style={{fontWeight:'normal', padding:'10px'}} dangerouslySetInnerHTML={{__html: this.state.post.body}}/>
+                )
+            }
+            else if (this.state.post.title !== ''){
+                return(
+                    <div>{this.state.post.title}</div>
+                )
+            }
         }
     }
     

@@ -109,7 +109,7 @@ class App extends React.Component {
         return (
             <div>
                 <div className="header">Tumblr Collector</div>
-                <div className="container">
+                <div className="container" style={{background:'pink'}}>
                     <div className="leftColumn">
                         <div className="searchBar">
                             <form onSubmit={this.handleSubmit}>
@@ -126,21 +126,25 @@ class App extends React.Component {
                                 </ul>
                             </form>
                         </div>
-                        {/* <div id="resText">Search Results:</div> */}
-                        <div className="results">
-                            <div>
-                                {this.state.posts.map((post, index) => {
-                                    return(<Post key={index} post={post} handleFavorite={this.handleFavorite} checkFavorited={this.checkFavorited}></Post>)
-                                })}
+                        <div className="resultsBox">
+                            <div className="results">
+                                <div>
+                                    {this.state.posts.map((post, index) => {
+                                        return(<Post key={index} post={post} handleFavorite={this.handleFavorite} checkFavorited={this.checkFavorited}></Post>)
+                                    })}
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className="rightColumn">
-                        <div className="favorites"> Favorites:
-                            <div>
-                                {this.state.favorites.map((post, index) => {
-                                    return(<Post key={index} post={post} handleFavorite={this.handleFavorite} checkFavorited={this.checkFavorited}></Post>)
-                                })}
+                        <div className="favText">Favorites:</div>
+                        <div className="fbox">
+                            <div className="favorites"> 
+                                <div>
+                                    {this.state.favorites.map((post, index) => {
+                                        return(<Post key={index} post={post} handleFavorite={this.handleFavorite} checkFavorited={this.checkFavorited}></Post>)
+                                    })}
+                                </div>
                             </div>
                         </div>
                     </div>
