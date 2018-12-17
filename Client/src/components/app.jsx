@@ -48,11 +48,11 @@ class App extends React.Component {
                     p.push(data.data[i])
                 }
             }
-            console.log(p);
+            // console.log(p);
             this.setState({posts: p})
         })
         .then(() => {
-            console.log('heres the data: ', this.state.posts);
+            // console.log('heres the data: ', this.state.posts);
         })
         .catch(err => {console.error(err); this.setState({posts: []}) })
     }
@@ -69,7 +69,7 @@ class App extends React.Component {
 
     //handling submit button
     handleSubmit(event) {
-        console.log(this.state);
+        // console.log(this.state);
         this.fetchTumblrs();
         event.preventDefault();
     }
@@ -83,13 +83,13 @@ class App extends React.Component {
             {
             tempFavs.splice(i,1);
             this.setState({favorites: tempFavs});
-            console.log('favs are: ', this.state.favorites);
+            // console.log('favs are: ', this.state.favorites);
             return;
             }
         }
         tempFavs.push(post);
         this.setState({favorites: tempFavs});
-        console.log('favs are: ', this.state.favorites);
+        // console.log('favs are: ', this.state.favorites);
     }
 
     //checks to see if the post in question is favorited so it knows which button to render
