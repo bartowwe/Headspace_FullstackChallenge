@@ -1,0 +1,167 @@
+body {
+    background: #36465D;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+input, select, textarea{
+    background: #2F3D51;
+    color: #ACB1BA;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin: 5px;
+    width: 150px;
+}
+
+input[type="text"]:focus { 
+    background: white;
+    color: #444444;
+    outline: none;
+  }
+
+  input[type="submit"]:focus { 
+    outline: none;
+  }
+
+
+  input[type="submit"]:active {
+    background: white;
+    color: #444444;
+    outline: none;
+  }
+
+.header {
+    padding: 30px;
+    top: 0px;
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.container {
+    position: fixed;
+    float: left;
+    top: 100px;
+    width: 100%;
+    background: white;
+    /* clear: both; */
+    align-content: center;
+}
+
+.leftColumn {
+    position: absolute;
+    left: 2%;
+    width: 47%;
+    border: 1px solid black;
+    border-radius: 5px;
+    background: #36465D;
+    overflow: hidden;
+}
+
+.rightColumn {
+    position: absolute;
+    right: 2%;
+    width: 48%;
+    border: 1px solid black;
+    border-radius: 5px;
+    background: #36465D;
+    overflow: hidden;
+}
+
+.searchBar {
+    border-bottom: 1px black solid;
+
+}
+
+/* .searchbox {
+
+}   */
+
+.results {
+    border: none;
+    height: 625px;
+    overflow: scroll;
+    margin: 10px;
+    margin-top: 0px;
+    font-weight: bold;
+    padding-top: 10px;
+
+}
+
+#resText {
+    padding: 10px;
+    padding-left: 50px;
+    font-weight: bold;
+}
+
+.favorites {
+    padding: 10px;
+    padding-left: 50px;
+    height: 750px;
+    font-weight: bold;
+    overflow: scroll;
+}
+
+.favBut {
+    float: right;
+    background: orange;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    width: 100px;
+}
+
+.favBut:active {
+    background: black;
+}
+
+.post {
+    height: auto;
+    width: auto;
+    border-radius: 10px;
+    background: white;
+    padding: 10px;
+    margin: 10px;
+    color: black;
+}
+
+.questionObject{
+    display: flex;
+    align-items: stretch;
+    float: right;
+    width: 100%;
+}
+
+.questionli {
+    display: inline-block;
+    list-style-type: none;
+    vertical-align: top;
+    margin-right: 10px;
+    
+}
+
+.question{
+    background: #F2F2F2;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 10px;
+    width: auto;
+}
+
+img {
+    width: 100%;
+    border-radius: 10px;
+    /* max-width: 600px; */
+}
+
+#form {
+    list-style-type: none;
+    display: inline-block;
+    margin: 10px;
+    font-weight: bold;
+}
